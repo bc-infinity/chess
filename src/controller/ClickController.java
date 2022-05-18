@@ -1,6 +1,7 @@
 package controller;
 
 
+import model.ChessColor;
 import model.ChessComponent;
 import view.Chessboard;
 
@@ -57,15 +58,19 @@ public class ClickController {
     }
 
     public void Enter(ChessComponent chessComponent) {
-        chessComponent.setEntered(true);
-        second = chessComponent;
-        second.repaint();
+        if (chessComponent.getChessColor() != ChessColor.NONE) {
+            chessComponent.setEntered(true);
+            second = chessComponent;
+            second.repaint();
+        }
     }
 
     public void Exited(ChessComponent chessComponent) {
-        chessComponent.setEntered(false);
-        second = chessComponent;
-        second.repaint();
+        if (chessComponent.getChessColor() != ChessColor.NONE) {
+            chessComponent.setEntered(false);
+            second = chessComponent;
+            second.repaint();
+        }
     }
 }
 
