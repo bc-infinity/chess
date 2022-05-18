@@ -1,0 +1,14 @@
+<changelist name="Uncommitted_changes_before_Update_at_2022_5_18_20_56_[Changes]" date="1652878606445" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_5_18_20_56_[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 2022/5/18 20:56 [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/chess/view/Chessboard.class" />
+    <option name="AFTER_PATH" value="out/production/chess/view/Chessboard.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_5_18_20_56_[Changes]/Chessboard.class" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="out/production/chess/view/ChessGameFrame.class" />
+    <option name="AFTER_PATH" value="out/production/chess/view/ChessGameFrame.class" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_5_18_20_56_[Changes]/ChessGameFrame.class" />
+  </binary>
+</changelist>

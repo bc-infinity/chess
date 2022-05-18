@@ -134,7 +134,6 @@ public class Chessboard extends JComponent {
         }
     }
 
-
     public void swapColor() {
         currentColor = currentColor == ChessColor.BLACK ? ChessColor.WHITE : ChessColor.BLACK;
     }

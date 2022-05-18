@@ -85,7 +85,6 @@ public class ChessGameFrame extends JFrame {
         });
     }
 
-
     private void remake(){
         JButton Remake = new JButton("Remake");
         Remake.setLocation(HEIGHT, HEIGHT / 10 + 150);
@@ -103,8 +102,6 @@ public class ChessGameFrame extends JFrame {
             chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
             add(chessboard);
         });
-
-          
     }
 
 }
