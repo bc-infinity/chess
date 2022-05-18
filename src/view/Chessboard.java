@@ -37,38 +37,8 @@ public class Chessboard extends JComponent {
         setSize(width, height);
         CHESS_SIZE = width / 8;
         System.out.printf("chessboard size = %d, chess size = %d\n", width, CHESS_SIZE);
-        //initiateEmptyChessboard();
         initial();
         initChessOnBoard(chessComponents);
-
-
-        // FIXME: Initialize chessboard for testing only.
-        /*
-        initRookOnBoard(0, 0, ChessColor.BLACK);
-        initRookOnBoard(0, CHESSBOARD_SIZE - 1, ChessColor.BLACK);
-        initRookOnBoard(CHESSBOARD_SIZE - 1, 0, ChessColor.WHITE);
-        initRookOnBoard(CHESSBOARD_SIZE - 1, CHESSBOARD_SIZE - 1, ChessColor.WHITE);
-
-        initKnightOnBoard(0,1,ChessColor.BLACK);
-        initKnightOnBoard(0,CHESSBOARD_SIZE - 2, ChessColor.BLACK);
-        initKnightOnBoard(CHESSBOARD_SIZE - 1, 1, ChessColor.WHITE);
-        initKnightOnBoard(CHESSBOARD_SIZE - 1, CHESSBOARD_SIZE - 2, ChessColor.WHITE);
-
-        initBishopOnBoard(0, 2, ChessColor.BLACK);
-        initBishopOnBoard(0, CHESSBOARD_SIZE - 3, ChessColor.BLACK);
-        initBishopOnBoard(CHESSBOARD_SIZE - 1, 2, ChessColor.WHITE);
-        initBishopOnBoard(CHESSBOARD_SIZE - 1, CHESSBOARD_SIZE - 3, ChessColor.WHITE);
-
-        initKingOnBoard(0,4,ChessColor.BLACK);
-        initKingOnBoard(CHESSBOARD_SIZE - 1, 4, ChessColor.WHITE);
-        initQueenOnBoard(0,3,ChessColor.BLACK);
-        initQueenOnBoard(CHESSBOARD_SIZE - 1, 3, ChessColor.WHITE);
-
-        for(int i=0;i<8;i++){
-            initPawnOnBoard(1,i,ChessColor.BLACK);
-            initPawnOnBoard(6,i,ChessColor.WHITE);
-        }
-         */
 
     }
 
@@ -163,17 +133,7 @@ public class Chessboard extends JComponent {
             }
         }
     }
-/*
-    public void initiateEmptyChessboard() {
-        for (int i = 0; i < chessComponents.length; i++) {
-            for (int j = 0; j < chessComponents[i].length; j++) {
-                if (chessComponents[i][j] instanceof EmptySlotComponent) {
-                    putChessOnBoard(chessComponents[i][j]);
-                }
-            }
-        }
-    }
-    */
+
 
     public void swapColor() {
         currentColor = currentColor == ChessColor.BLACK ? ChessColor.WHITE : ChessColor.BLACK;
@@ -203,40 +163,6 @@ public class Chessboard extends JComponent {
             }
         }
     }
-/*
-    private void initRookOnBoard(int row, int col, ChessColor color) {
-        ChessComponent chessComponent = new RookChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
-        chessComponent.setVisible(true);
-        putChessOnBoard(chessComponent);
-    }
-    private void initKnightOnBoard(int row, int col, ChessColor color) {
-        ChessComponent chessComponent = new KnightChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
-        chessComponent.setVisible(true);
-        putChessOnBoard(chessComponent);
-    }
-    private void initKingOnBoard(int row, int col, ChessColor color) {
-        ChessComponent chessComponent = new KingChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
-        chessComponent.setVisible(true);
-        putChessOnBoard(chessComponent);
-    }
-    private void initQueenOnBoard(int row, int col, ChessColor color) {
-        ChessComponent chessComponent = new QueenChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
-        chessComponent.setVisible(true);
-        putChessOnBoard(chessComponent);
-    }
-    private void initBishopOnBoard(int row, int col, ChessColor color) {
-        ChessComponent chessComponent = new BishopChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
-        chessComponent.setVisible(true);
-        putChessOnBoard(chessComponent);
-    }
-    private void initPawnOnBoard(int row, int col, ChessColor color) {
-        ChessComponent chessComponent = new PawnChessComponent(new ChessboardPoint(row, col), calculatePoint(row, col), color, clickController, CHESS_SIZE);
-        chessComponent.setVisible(true);
-        putChessOnBoard(chessComponent);
-    }
-
- */
-
 
     @Override
     protected void paintComponent(Graphics g) {

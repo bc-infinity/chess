@@ -39,6 +39,7 @@ public abstract class ChessComponent extends JComponent {
     private ChessboardPoint chessboardPoint;
     protected final ChessColor chessColor;
     private boolean selected;
+    private boolean entered;
 
     protected ChessComponent(ChessboardPoint chessboardPoint, Point location, ChessColor chessColor, ClickController clickController, int size) {
         enableEvents(AWTEvent.MOUSE_EVENT_MASK);
@@ -65,9 +66,15 @@ public abstract class ChessComponent extends JComponent {
     public boolean isSelected() {
         return selected;
     }
+    public boolean isEntered(){
+        return entered;
+    }
 
     public void setSelected(boolean selected) {
         this.selected = selected;
+    }
+    public void setEntered(boolean entered){
+        this.entered=entered;
     }
 
     /**
@@ -97,8 +104,15 @@ public abstract class ChessComponent extends JComponent {
             System.out.printf("Click [%d,%d]\n", chessboardPoint.getX(), chessboardPoint.getY());
             clickController.onClick(this);
         }
+        if (e.getID()==MouseEvent.MOUSE_ENTERED){
+            System.out.printf("Enter [%d,%d]\n", chessboardPoint.getX(), chessboardPoint.getY());
+            clickController.Enter(this);
+        }
+        if(e.getID()==MouseEvent.MOUSE_EXITED){
+            System.out.printf("Exit [%d,%d]\n", chessboardPoint.getX(), chessboardPoint.getY());
+            clickController.Exited(this);
+        }
     }
-
     /**
      * @param chessboard  棋盘
      * @param destination 目标位置，如(0, 0), (0, 7)等等
@@ -121,6 +135,11 @@ public abstract class ChessComponent extends JComponent {
         System.out.printf("repaint chess [%d,%d]\n", chessboardPoint.getX(), chessboardPoint.getY());
         Color squareColor = BACKGROUND_COLORS[(chessboardPoint.getX() + chessboardPoint.getY()) % 2];
         g.setColor(squareColor);
+        if(isEntered()){
+            Color color=Color.lightGray;
+            g.setColor(color);
+        }
+
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
     }
 

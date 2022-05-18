@@ -2,17 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40b01812-44d1-4a7a-94d6-52a249b190cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chess/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/controller/ClickController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/controller/ClickController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/model/ChessComponent.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/model/ChessComponent.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chess/view/ChessGameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/view/ChessGameFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/view/Chessboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/view/Chessboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ClickController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ClickController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ChessComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ChessComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/ChessGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ChessGameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Chessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Chessboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -68,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1652844135390</updated>
       <workItem from="1652844136569" duration="881000" />
-      <workItem from="1652853532261" duration="4705000" />
+      <workItem from="1652853532261" duration="10809000" />
     </task>
     <servers />
   </component>

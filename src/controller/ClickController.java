@@ -7,6 +7,7 @@ import view.Chessboard;
 public class ClickController {
     private final Chessboard chessboard;
     private ChessComponent first;
+    private ChessComponent second;
 
     public ClickController(Chessboard chessboard) {
         this.chessboard = chessboard;
@@ -54,4 +55,17 @@ public class ClickController {
         return chessComponent.getChessColor() != chessboard.getCurrentColor() &&
                 first.canMoveTo(chessboard.getChessComponents(), chessComponent.getChessboardPoint());
     }
+
+    public void Enter(ChessComponent chessComponent) {
+        chessComponent.setEntered(true);
+        second = chessComponent;
+        second.repaint();
+    }
+
+    public void Exited(ChessComponent chessComponent) {
+        chessComponent.setEntered(false);
+        second = chessComponent;
+        second.repaint();
+    }
 }
+
