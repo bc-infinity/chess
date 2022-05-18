@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40b01812-44d1-4a7a-94d6-52a249b190cf" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/view/ChessGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ChessGameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,12 +49,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="78344e1a-5e38-41c2-9332-7997906be581" name="Changes" comment="" />
+      <changelist id="40b01812-44d1-4a7a-94d6-52a249b190cf" name="Changes" comment="" />
       <created>1652844135390</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652844135390</updated>
       <workItem from="1652844136569" duration="881000" />
+      <workItem from="1652853532261" duration="355000" />
     </task>
     <servers />
   </component>
