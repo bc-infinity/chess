@@ -17,8 +17,8 @@ public class Menu extends JFrame implements ActionListener {
         this.setSize(300,200);
         this.setLocationRelativeTo(null);
 
-        Game_Start = new JButton("Start");
-        Game_Over = new JButton("Over");
+        Game_Start = new JButton(" Start ");
+        Game_Over = new JButton(" Over ");
         this.add(Game_Start);
         this.add(Game_Over);
         Game_Start.addActionListener(this);

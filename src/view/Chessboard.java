@@ -42,6 +42,19 @@ public class Chessboard extends JComponent {
 
     }
 
+
+    public Chessboard(int width, int height, ArrayList<List<String>> steps) {
+        setLayout(null);
+        setSize(width, height);
+        CHESS_SIZE = width / 8;
+        System.out.printf("chessboard size = %d, chess size = %d\n", width, CHESS_SIZE);
+
+        loadGame(steps.get(steps.size()-1));
+    }
+
+
+
+
     public ChessComponent[][] getChessComponents() {
         return chessComponents;
     }

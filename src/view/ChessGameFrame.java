@@ -35,6 +35,7 @@ public class ChessGameFrame extends JFrame {
         addLoadButton();
 
         remake();
+        undo();
     }
 
 
@@ -103,8 +104,33 @@ public class ChessGameFrame extends JFrame {
             chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
             add(chessboard);
         });
+    }
 
-          
+    private void undo(){
+        JButton Undo = new JButton("undo");
+        Undo.setLocation(HEIGHT, HEIGHT / 10 + 210);
+        Undo.setSize(200, 50);
+        Undo.setFont(new Font("Rockwell", Font.BOLD, 20));
+        add(Undo);
+
+        Undo.addActionListener(e -> {
+            if( chessboard.steps.size() > 1 ){
+                System.out.println(chessboard.steps.size());
+                System.out.println("Click undo");
+                this.chessboard.steps.remove(this.chessboard.steps.size()-1);
+                remove(this.chessboard);
+                System.out.println(chessboard.steps.size());
+                repaint();
+
+                this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE, chessboard.steps);
+                gameController = new GameController(chessboard);
+                chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
+                add(chessboard);
+                System.out.println(chessboard.steps.size()-1);
+            }
+            else
+                JOptionPane.showMessageDialog(this, "error");
+        });
     }
 
 }
