@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * 这个类表示游戏过程中的整个游戏界面，是一切的载体
+ * 尝试
  */
 public class ChessGameFrame extends JFrame {
     //    public final Dimension FRAME_SIZE ;
