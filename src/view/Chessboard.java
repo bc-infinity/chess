@@ -8,6 +8,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * 这个类表示面板上的棋盘组件对象
  */
@@ -32,14 +33,14 @@ public class Chessboard extends JComponent {
     public ArrayList<List<String>> steps = new ArrayList<>();
 
 
-    public Chessboard(int width, int height) {
+    public Chessboard(int width, int height,List<String> chessData) {
         setLayout(null); // Use absolute layout.
         setSize(width, height);
         CHESS_SIZE = width / 8;
         System.out.printf("chessboard size = %d, chess size = %d\n", width, CHESS_SIZE);
-        initial();
-        initChessOnBoard(chessComponents);
-
+        if (chessData==null) {
+            initial();
+        }
     }
 
     public ChessComponent[][] getChessComponents() {
@@ -142,21 +143,6 @@ public class Chessboard extends JComponent {
         for (int i = 0; i < chessComponents.length; i++) {
             for (int j = 0; j < chessComponents[i].length; j++) {
                 ChessComponent chessComponent = chessComponents[i][j];
-                /*
-                if(chessComponent instanceof RookChessComponent){
-                    initRookOnBoard(i,j,chessComponent.getChessColor());
-                }else if(chessComponent instanceof KnightChessComponent){
-                    initKnightOnBoard(i,j,chessComponent.getChessColor());
-                }else if(chessComponent instanceof KingChessComponent){
-                    initKingOnBoard(i,j,chessComponent.getChessColor());
-                }else if(chessComponent instanceof QueenChessComponent){
-                    initQueenOnBoard(i,j,chessComponent.getChessColor());
-                }else if(chessComponent instanceof BishopChessComponent){
-                    initBishopOnBoard(i,j,chessComponent.getChessColor());
-                }else if(chessComponent instanceof PawnChessComponent){
-                    initPawnOnBoard(i,j,chessComponent.getChessColor());
-                }
-                 */
                 chessComponent.setVisible(true);
                 putChessOnBoard(chessComponent);
             }
@@ -199,6 +185,7 @@ public class Chessboard extends JComponent {
                 }
             }
         }
+        initChessOnBoard(chessComponents);
     }
 
     public void initial() {

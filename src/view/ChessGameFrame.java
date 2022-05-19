@@ -5,6 +5,7 @@ import controller.GameController;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -42,8 +43,8 @@ public class ChessGameFrame extends JFrame {
      * 在游戏面板中添加棋盘
      */
     private void addChessboard() {
-        this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE);
         gameController = new GameController(chessboard);
+        this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE,null);
         chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
         add(chessboard);
     }
@@ -70,7 +71,6 @@ public class ChessGameFrame extends JFrame {
         button.setFont(new Font("Rockwell", Font.BOLD, 20));
         add(button);
     }
-
     private void addLoadButton() {
         JButton button = new JButton("Load");
         button.setLocation(HEIGHT, HEIGHT / 10 + 90);
@@ -81,9 +81,18 @@ public class ChessGameFrame extends JFrame {
         button.addActionListener(e -> {
             System.out.println("Click load");
             String path = JOptionPane.showInputDialog(this,"Input Path here");
-            gameController.loadGameFromFile(path);
+            if(gameController.loadGame(path)!=null) {
+                remove(this.chessboard);
+                repaint();
+                this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE, gameController.loadGame(path));
+                gameController = new GameController(chessboard);
+                chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
+                gameController.loadGameFromFile(path);
+                add(chessboard);
+            }
         });
     }
+
 
     private void remake(){
         JButton Remake = new JButton("Remake");
@@ -96,8 +105,7 @@ public class ChessGameFrame extends JFrame {
             System.out.println("Click remake");
             remove(this.chessboard);
             repaint();
-
-            this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE);
+            this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE,null);
             gameController = new GameController(chessboard);
             chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
             add(chessboard);

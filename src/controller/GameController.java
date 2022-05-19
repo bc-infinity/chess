@@ -16,12 +16,42 @@ public class GameController {
 
     public List<String> loadGameFromFile(String path) {
         try {
-            if (path.substring(path.length()-3,path.length()-1).equals("txt")) {
+            if (path.substring(path.length()-3,path.length()).equals("txt")) {
                 List<String> chessData = Files.readAllLines(Path.of(path));
                 if (checkBoard(chessData)) {
                     if (checkPiece(chessData)) {
                         if (checkPlayer(chessData)) {
                             chessboard.loadGame(chessData);
+                            return chessData;
+                        } else {
+                            System.out.println("103");
+                            return null;
+                        }
+                    } else {
+                        System.out.println("102");
+                        return null;
+                    }
+
+                } else {
+                    System.out.println("101");
+                    return null;
+                }
+            }else {
+                System.out.println("104");
+                return null;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public List<String> loadGame(String path) {
+        try {
+            if (path.substring(path.length()-3,path.length()).equals("txt")) {
+                List<String> chessData = Files.readAllLines(Path.of(path));
+                if (checkBoard(chessData)) {
+                    if (checkPiece(chessData)) {
+                        if (checkPlayer(chessData)) {
                             return chessData;
                         } else {
                             System.out.println("103");
