@@ -138,14 +138,11 @@ public class ChessGameFrame extends JFrame {
 
         Undo.addActionListener(e -> {
             if( chessboard.steps.size() > 1 ){
-                //System.out.println(chessboard.steps.size());
                 System.out.println("Click undo");
                 remove(chessboard);
                 repaint();
-                //System.out.println(chessboard.steps.size());
 
                 chessboard.steps.remove(chessboard.steps.size()-1);
-                //System.out.println(chessboard.steps.size());
 
                 chessboard.loadGame(chessboard.steps.get(chessboard.steps.size()-1));
                 chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);

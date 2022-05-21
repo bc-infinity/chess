@@ -44,20 +44,19 @@ public class Menu extends JFrame implements ActionListener {
                 ChessGameFrame mainFrame = new ChessGameFrame(900, 600);
                 mainFrame.setVisible(true);
 
-
                 //背景音乐启动
                 BGM audioPlayWave = new BGM("./images/_Wave_1.wav");// 开音乐 音樂名
                 audioPlayWave.start();
                 @SuppressWarnings("unused")
                 int musicOpenLab = 1;
 
-
                 ImageIcon img = new ImageIcon("./images/IMG_9006(20220521-092825).JPG");
                 JLabel imgLabel = new JLabel(img);
                 mainFrame.getLayeredPane().add(imgLabel, Integer.valueOf(Integer.MIN_VALUE));
-                imgLabel.setBounds(0,0,900,600);
+                imgLabel.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
+                imgLabel.setLocation(0,0);
                 Container cp = mainFrame.getContentPane();
-                cp.setLayout(new BorderLayout());
+                cp.setLayout(null);
                 ((JPanel)cp).setOpaque(false);
             });
         }
