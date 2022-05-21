@@ -13,7 +13,7 @@ import java.util.List;
  * 尝试
  */
 public class ChessGameFrame extends JFrame {
-    //    public final Dimension FRAME_SIZE ;
+    //public final Dimension FRAME_SIZE ;
     private final int WIDTH;
     private final int HEIGHT;
     public final int CHESSBOARD_SIZE;
@@ -37,6 +37,7 @@ public class ChessGameFrame extends JFrame {
         addLoadButton();
 
         remake();
+        undo();
     }
 
 
@@ -100,7 +101,6 @@ public class ChessGameFrame extends JFrame {
         });
     }
 
-
     private void remake() {
         JButton Remake = new JButton("Remake");
         Remake.setLocation(HEIGHT, HEIGHT / 10 + 150);
@@ -116,6 +116,32 @@ public class ChessGameFrame extends JFrame {
             gameController = new GameController(chessboard);
             chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
             add(chessboard);
+        });
+    }
+
+    private void undo(){
+        JButton Undo = new JButton("undo");
+        Undo.setLocation(HEIGHT, HEIGHT / 10 + 210);
+        Undo.setSize(200, 50);
+        Undo.setFont(new Font("Rockwell", Font.BOLD, 20));
+        add(Undo);
+
+        Undo.addActionListener(e -> {
+            if( chessboard.steps.size() > 1 ){
+                //System.out.println(chessboard.steps.size());
+                System.out.println("Click undo");
+                remove(chessboard);
+                repaint();
+                //System.out.println(chessboard.steps.size());
+
+                chessboard.steps.remove(chessboard.steps.size()-1);
+                //System.out.println(chessboard.steps.size());
+
+                chessboard.loadGame(chessboard.steps.get(chessboard.steps.size()-1));
+                add(chessboard);
+            }
+            else
+                JOptionPane.showMessageDialog(this, "error");
         });
     }
 
