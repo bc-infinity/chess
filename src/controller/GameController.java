@@ -1,5 +1,6 @@
 package controller;
 
+import model.ChessColor;
 import view.Chessboard;
 
 import javax.swing.*;
@@ -10,6 +11,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+
+import static view.ChessGameFrame.playerLabel;
 
 public class GameController {
     private Chessboard chessboard;
@@ -51,6 +54,11 @@ public class GameController {
         try {
             List<String> chessData = Files.readAllLines(Path.of(path));
             chessboard.loadGame(chessData);
+            if(chessboard.getCurrentColor()== ChessColor.BLACK){
+                playerLabel.setText(ChessColor.BLACK.getName()+"'s");
+            }else{
+                playerLabel.setText(ChessColor.WHITE.getName()+"'s");
+            }
             return chessData;
         } catch (IOException e) {
             e.printStackTrace();

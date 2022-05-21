@@ -147,6 +147,7 @@ public class ChessGameFrame extends JFrame {
                 chessboard.loadGame(chessboard.steps.get(chessboard.steps.size()-1));
                 chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
                 add(chessboard);
+                playerLabel.setText(this.gameController.getChessboard().getCurrentColor().getName()+"'s");
             }
             else
                 JOptionPane.showMessageDialog(this, "error");
