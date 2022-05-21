@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34edf1e0-b4f2-49df-ba70-2a84c1e0469b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chess/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chess/view/ChessGameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/view/ChessGameFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/save1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resource/save1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/ChessGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ChessGameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

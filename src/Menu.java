@@ -50,14 +50,6 @@ public class Menu extends JFrame implements ActionListener {
                 @SuppressWarnings("unused")
                 int musicOpenLab = 1;
 
-                ImageIcon img = new ImageIcon("./images/IMG_9006(20220521-092825).JPG");
-                JLabel imgLabel = new JLabel(img);
-                mainFrame.getLayeredPane().add(imgLabel, Integer.valueOf(Integer.MIN_VALUE));
-                imgLabel.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
-                imgLabel.setLocation(0,0);
-                Container cp = mainFrame.getContentPane();
-                cp.setLayout(null);
-                ((JPanel)cp).setOpaque(false);
             });
         }
         if(e.getSource() == Game_Over){

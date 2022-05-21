@@ -21,6 +21,10 @@ public class ChessGameFrame extends JFrame {
     private GameController gameController;
     Chessboard chessboard;
     public static JLabel playerLabel;
+    private int n = 0;
+    private JLabel imgLabel;
+    private Container cp;
+
 
     public ChessGameFrame(int width, int height) {
         setTitle("2022 CS102A Project Demo"); //设置标题
@@ -33,6 +37,16 @@ public class ChessGameFrame extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE); //设置程序关闭按键，如果点击右上方的叉就游戏全部关闭了
         setLayout(null);
 
+        ImageIcon img = new ImageIcon("./images/20211016120322.jpg");
+        imgLabel = new JLabel(img);
+        getLayeredPane().add(imgLabel, Integer.valueOf(Integer.MIN_VALUE));
+        imgLabel.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
+        imgLabel.setLocation(0,0);
+        cp = getContentPane();
+        cp.setLayout(null);
+        ((JPanel)cp).setOpaque(false);
+
+
         addChessboard();
         addPlayerLabel();
         addSaveButton();
@@ -41,6 +55,7 @@ public class ChessGameFrame extends JFrame {
 
         remake();
         undo();
+        changeBackground();
     }
 
 
@@ -69,7 +84,6 @@ public class ChessGameFrame extends JFrame {
     public static void setPlayerLabel(ChessColor chessColor){
         playerLabel.setText(chessColor.getName()+"'s");
         System.out.println(chessColor.getName());
-
     }
 
     /**
@@ -155,13 +169,48 @@ public class ChessGameFrame extends JFrame {
     }
 
 
-//    private void addLabelCurrentPlayer(){
-//        String player = chessboard.player;
-//        JLabel current = new JLabel(player);
-//        current.setLocation(HEIGHT+60, HEIGHT / 10 + 260);
-//        current.setSize(150, 50);
-//        current.setFont(new Font("Rockwell", Font.BOLD, 20));
-//        add(current);
-//    }
+
+
+    private void changeBackground(){
+        JButton Undo = new JButton("ChangeBackGround");
+        Undo.setLocation(HEIGHT, HEIGHT / 10 + 270);
+        Undo.setSize(200, 30);
+        Undo.setFont(new Font("Rockwell", Font.BOLD, 15));
+        add(Undo);
+
+        Undo.addActionListener(e -> {
+            if( n == 0 ){
+                getLayeredPane().remove(imgLabel);
+                repaint();
+
+                ImageIcon img = new ImageIcon("images/IMG_9006(20220521-092825).JPG");
+                imgLabel = new JLabel(img);
+                getLayeredPane().add(imgLabel, Integer.valueOf(Integer.MIN_VALUE));
+                imgLabel.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
+                imgLabel.setLocation(0,0);
+                cp = getContentPane();
+                cp.setLayout(null);
+                ((JPanel)cp).setOpaque(false);
+
+                n = 1;
+            }else {
+                getLayeredPane().remove(imgLabel);
+                repaint();
+
+                ImageIcon img = new ImageIcon("./images/20211016120322.jpg");
+                imgLabel = new JLabel(img);
+                getLayeredPane().add(imgLabel, Integer.valueOf(Integer.MIN_VALUE));
+                imgLabel.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
+                imgLabel.setLocation(0,0);
+                cp = getContentPane();
+                cp.setLayout(null);
+                ((JPanel)cp).setOpaque(false);
+
+                n = 0;
+            }
+        });
+    }
+
+
 
 }
