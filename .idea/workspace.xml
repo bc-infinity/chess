@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34edf1e0-b4f2-49df-ba70-2a84c1e0469b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/IMG_9006(20220521-092825).JPG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_5_18_20_56__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_5_18_20_56__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/chess/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/view/ChessGameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/view/ChessGameFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/view/Chessboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/view/Chessboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ChessGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ChessGameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Chessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Chessboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +31,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
   </component>
   <component name="RecentsManager">
@@ -59,8 +64,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1653096031869</updated>
+      <workItem from="1653097665065" duration="1132000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">

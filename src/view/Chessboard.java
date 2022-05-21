@@ -42,6 +42,9 @@ public class Chessboard extends JComponent {
             initial();
         }
     }
+    public List<String> getLastStep(){
+        return steps.get(steps.size()-1);
+    }
 
     public ChessComponent[][] getChessComponents() {
         return chessComponents;

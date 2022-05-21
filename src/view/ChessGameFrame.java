@@ -33,7 +33,7 @@ public class ChessGameFrame extends JFrame {
 
         addChessboard();
         addLabel();
-        addHelloButton();
+        addSaveButton();
         addLoadButton();
 
         remake();
@@ -45,7 +45,7 @@ public class ChessGameFrame extends JFrame {
      */
     private void addChessboard() {
         gameController = new GameController(chessboard);
-        this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE,null);
+        this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE, null);
         chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
         add(chessboard);
     }
@@ -55,7 +55,7 @@ public class ChessGameFrame extends JFrame {
      */
     private void addLabel() {
         JLabel statusLabel = new JLabel("Sample label");
-        statusLabel.setLocation(HEIGHT+60, HEIGHT / 10 - 30);
+        statusLabel.setLocation(HEIGHT + 60, HEIGHT / 10 - 30);
         statusLabel.setSize(150, 50);
         statusLabel.setFont(new Font("Rockwell", Font.BOLD, 20));
         add(statusLabel);
@@ -64,14 +64,6 @@ public class ChessGameFrame extends JFrame {
     /**
      * 在游戏面板中增加一个按钮，如果按下的话就会显示Hello, world!
      */
-    private void addHelloButton() {
-        JButton button = new JButton("Show Hello Here");
-        button.addActionListener((e) -> JOptionPane.showMessageDialog(this, "Hello, world!"));
-        button.setLocation(HEIGHT, HEIGHT / 10 + 30);
-        button.setSize(200, 50);
-        button.setFont(new Font("Rockwell", Font.BOLD, 20));
-        add(button);
-    }
     private void addLoadButton() {
         JButton button = new JButton("Load");
         button.setLocation(HEIGHT, HEIGHT / 10 + 90);
@@ -81,8 +73,8 @@ public class ChessGameFrame extends JFrame {
 
         button.addActionListener(e -> {
             System.out.println("Click load");
-            String path = JOptionPane.showInputDialog(this,"Input Path here");
-            if(gameController.loadGame(path)!=null) {
+            String path = JOptionPane.showInputDialog(this, "Input Path here");
+            if (gameController.loadGame(path) != null) {
                 remove(this.chessboard);
                 repaint();
                 this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE, gameController.loadGame(path));
@@ -94,8 +86,22 @@ public class ChessGameFrame extends JFrame {
         });
     }
 
+    private void addSaveButton() {
+        JButton button = new JButton("Save");
+        button.setLocation(HEIGHT, HEIGHT / 10 + 30);
+        button.setSize(200, 50);
+        button.setFont(new Font("Rockwell", Font.BOLD, 20));
+        add(button);
+        gameController.setChessboard(chessboard);
+        button.addActionListener(e -> {
+            System.out.println("Click save");
+            String path = JOptionPane.showInputDialog(this, "Input Path here");
+            gameController.writeDataToFile(path);
+        });
+    }
 
-    private void remake(){
+
+    private void remake() {
         JButton Remake = new JButton("Remake");
         Remake.setLocation(HEIGHT, HEIGHT / 10 + 150);
         Remake.setSize(200, 50);
@@ -106,7 +112,7 @@ public class ChessGameFrame extends JFrame {
             System.out.println("Click remake");
             remove(this.chessboard);
             repaint();
-            this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE,null);
+            this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE, null);
             gameController = new GameController(chessboard);
             chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
             add(chessboard);
