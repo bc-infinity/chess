@@ -111,6 +111,12 @@ public class Chessboard extends JComponent {
                     if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
                         str.append('b');
                 }
+                if (chessComponents[i][j] instanceof KingChessComponent) {
+                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
+                        str.append('K');
+                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
+                        str.append('k');
+                }
                 if (chessComponents[i][j] instanceof EmptySlotComponent) {
                     str.append('_');
                 }
