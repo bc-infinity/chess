@@ -20,6 +20,9 @@ public class GameController {
     public void setChessboard(Chessboard chessboard) {
         this.chessboard = chessboard;
     }
+    public Chessboard getChessboard(){
+        return chessboard;
+    }
 
     public void writeDataToFile(String path) {
         File file = new File(path);
@@ -56,28 +59,32 @@ public class GameController {
 
     public List<String> loadGame(String path) {
         try {
-            if (path.length()>=3) {
-                if (path.substring(path.length() - 3, path.length()).equals("txt")) {
-                    List<String> chessData = Files.readAllLines(Path.of(path));
-                    if (checkBoard(chessData)) {
-                        if (checkPiece(chessData)) {
-                            if (checkPlayer(chessData)) {
-                                return chessData;
+            if(path!=null) {
+                if (path.length() >= 3) {
+                    if (path.substring(path.length() - 3, path.length()).equals("txt")) {
+                        List<String> chessData = Files.readAllLines(Path.of(path));
+                        if (checkBoard(chessData)) {
+                            if (checkPiece(chessData)) {
+                                if (checkPlayer(chessData)) {
+                                    return chessData;
+                                } else {
+                                    System.out.println("103");
+                                    return null;
+                                }
                             } else {
-                                System.out.println("103");
+                                System.out.println("102");
                                 return null;
                             }
+
                         } else {
-                            System.out.println("102");
+                            System.out.println("101");
                             return null;
                         }
-
                     } else {
-                        System.out.println("101");
+                        System.out.println("104");
                         return null;
                     }
                 } else {
-                    System.out.println("104");
                     return null;
                 }
             }else{

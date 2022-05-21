@@ -1,6 +1,7 @@
 package view;
 
 import controller.GameController;
+import model.ChessColor;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +20,7 @@ public class ChessGameFrame extends JFrame {
     public final int CHESSBOARD_SIZE;
     private GameController gameController;
     Chessboard chessboard;
+    public static JLabel playerLabel;
 
     public ChessGameFrame(int width, int height) {
         setTitle("2022 CS102A Project Demo"); //设置标题
@@ -32,10 +34,10 @@ public class ChessGameFrame extends JFrame {
         setLayout(null);
 
         addChessboard();
-        addLabel();
+        addPlayerLabel();
         addSaveButton();
         addLoadButton();
-        addLabelCurrentPlayer();
+        //addLabelCurrentPlayer();
 
         remake();
         undo();
@@ -46,8 +48,8 @@ public class ChessGameFrame extends JFrame {
      * 在游戏面板中添加棋盘
      */
     private void addChessboard() {
-        gameController = new GameController(chessboard);
         this.chessboard = new Chessboard(CHESSBOARD_SIZE, CHESSBOARD_SIZE, null);
+        gameController = new GameController(chessboard);
         chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
         add(chessboard);
     }
@@ -55,12 +57,19 @@ public class ChessGameFrame extends JFrame {
     /**
      * 在游戏面板中添加标签
      */
-    private void addLabel() {
-        JLabel statusLabel = new JLabel("Sample label");
-        statusLabel.setLocation(HEIGHT + 60, HEIGHT / 10 - 30);
-        statusLabel.setSize(150, 50);
-        statusLabel.setFont(new Font("Rockwell", Font.BOLD, 20));
-        add(statusLabel);
+    private void addPlayerLabel() {
+        playerLabel = new JLabel(this.gameController.getChessboard().getCurrentColor().getName()+"'s");
+        System.out.println(this.gameController.getChessboard().getCurrentColor().getName());
+        playerLabel.setLocation(HEIGHT + 60, HEIGHT / 10 - 30);
+        playerLabel.setSize(150, 50);
+        playerLabel.setFont(new Font("Rockwell", Font.BOLD, 20));
+        add(playerLabel);
+        repaint();
+    }
+    public static void setPlayerLabel(ChessColor chessColor){
+        playerLabel.setText(chessColor.getName()+"'s");
+        System.out.println(chessColor.getName());
+
     }
 
     /**
@@ -147,13 +156,13 @@ public class ChessGameFrame extends JFrame {
     }
 
 
-    private void addLabelCurrentPlayer(){
-        String player = chessboard.player;
-        JLabel current = new JLabel(player);
-        current.setLocation(HEIGHT+60, HEIGHT / 10 + 260);
-        current.setSize(150, 50);
-        current.setFont(new Font("Rockwell", Font.BOLD, 20));
-        add(current);
-    }
+//    private void addLabelCurrentPlayer(){
+//        String player = chessboard.player;
+//        JLabel current = new JLabel(player);
+//        current.setLocation(HEIGHT+60, HEIGHT / 10 + 260);
+//        current.setSize(150, 50);
+//        current.setFont(new Font("Rockwell", Font.BOLD, 20));
+//        add(current);
+//    }
 
 }

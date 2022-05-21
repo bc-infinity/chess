@@ -8,6 +8,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static view.ChessGameFrame.setPlayerLabel;
+
 
 /**
  * 这个类表示面板上的棋盘组件对象
@@ -79,60 +81,6 @@ public class Chessboard extends JComponent {
 
         chess1.repaint();
         chess2.repaint();
-        /*
-        List<String> result = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
-            StringBuilder str = new StringBuilder();
-            for (int j = 0; j < 8; j++) {
-                if (chessComponents[i][j] instanceof RookChessComponent) {
-                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
-                        str.append('R');
-                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
-                        str.append('r');
-                }
-                if (chessComponents[i][j] instanceof KnightChessComponent) {
-                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
-                        str.append('N');
-                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
-                        str.append('n');
-                }
-                if (chessComponents[i][j] instanceof PawnChessComponent) {
-                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
-                        str.append('P');
-                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
-                        str.append('p');
-                }
-                if (chessComponents[i][j] instanceof QueenChessComponent) {
-                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
-                        str.append('Q');
-                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
-                        str.append('q');
-                }
-                if (chessComponents[i][j] instanceof BishopChessComponent) {
-                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
-                        str.append('B');
-                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
-                        str.append('b');
-                }
-                if (chessComponents[i][j] instanceof KingChessComponent) {
-                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
-                        str.append('K');
-                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
-                        str.append('k');
-                }
-                if (chessComponents[i][j] instanceof EmptySlotComponent) {
-                    str.append('_');
-                }
-            }
-            result.add(str.toString());
-        }
-        if (getCurrentColor() == ChessColor.BLACK)
-            result.add("b");
-        if (getCurrentColor() == ChessColor.WHITE)
-            result.add("w");
-        steps.add(result);
-
-         */
         if (ifBlackCheckmate(chessComponents)) {
             if (blackEscapeCheckmate(chessComponents)){
 
@@ -152,7 +100,7 @@ public class Chessboard extends JComponent {
     public void swapColor() {
         currentColor = currentColor == ChessColor.BLACK ? ChessColor.WHITE : ChessColor.BLACK;
         player = currentColor == ChessColor.BLACK ? "WHITE" : "BLACK";
-
+        setPlayerLabel(currentColor);
         List<String> result = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
             StringBuilder str = new StringBuilder();

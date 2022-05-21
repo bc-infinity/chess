@@ -105,11 +105,11 @@ public abstract class ChessComponent extends JComponent {
             clickController.onClick(this);
         }
         if (e.getID()==MouseEvent.MOUSE_ENTERED){
-            System.out.printf("Enter [%d,%d]\n", chessboardPoint.getX(), chessboardPoint.getY());
+            //System.out.printf("Enter [%d,%d]\n", chessboardPoint.getX(), chessboardPoint.getY());
             clickController.Enter(this);
         }
         if(e.getID()==MouseEvent.MOUSE_EXITED){
-            System.out.printf("Exit [%d,%d]\n", chessboardPoint.getX(), chessboardPoint.getY());
+            //System.out.printf("Exit [%d,%d]\n", chessboardPoint.getX(), chessboardPoint.getY());
             clickController.Exited(this);
         }
     }
@@ -132,7 +132,7 @@ public abstract class ChessComponent extends JComponent {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponents(g);
-        System.out.printf("repaint chess [%d,%d]\n", chessboardPoint.getX(), chessboardPoint.getY());
+        //System.out.printf("repaint chess [%d,%d]\n", chessboardPoint.getX(), chessboardPoint.getY());
         Color squareColor = BACKGROUND_COLORS[(chessboardPoint.getX() + chessboardPoint.getY()) % 2];
         g.setColor(squareColor);
         if(isEntered()){
