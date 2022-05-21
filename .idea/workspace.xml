@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34edf1e0-b4f2-49df-ba70-2a84c1e0469b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chess/view/ChessGameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/view/ChessGameFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/chess/view/Chessboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/view/Chessboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource/save2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/resource/save2.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/ChessGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ChessGameFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/Chessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Chessboard.java" afterDir="false" />
     </list>
@@ -38,7 +38,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../HelloWorld" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">

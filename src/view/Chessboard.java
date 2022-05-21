@@ -31,7 +31,7 @@ public class Chessboard extends JComponent {
     private final ClickController clickController = new ClickController(this);
     private final int CHESS_SIZE;
     public ArrayList<List<String>> steps = new ArrayList<>();
-
+    public String player;
 
     public Chessboard(int width, int height,List<String> chessData) {
         setLayout(null); // Use absolute layout.
@@ -151,6 +151,7 @@ public class Chessboard extends JComponent {
 
     public void swapColor() {
         currentColor = currentColor == ChessColor.BLACK ? ChessColor.WHITE : ChessColor.BLACK;
+        player = currentColor == ChessColor.BLACK ? "WHITE" : "BLACK";
 
         List<String> result = new ArrayList<>();
         for (int i = 0; i < 8; i++) {
@@ -234,11 +235,15 @@ public class Chessboard extends JComponent {
                     remove(chessComponents[i][j]);
             }
         }
+
         if (chessData.get(8).charAt(0) == 'w') {
             currentColor = ChessColor.WHITE;
+            player = "WHITE";
         } else {
             currentColor = ChessColor.BLACK;
+            player = "BLACK";
         }
+
         //String---->排进数组chessComponent[][]
         for (int i = 0; i < chessComponents.length; i++) {
             for (int j = 0; j < chessComponents[i].length; j++) {

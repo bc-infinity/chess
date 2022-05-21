@@ -35,6 +35,7 @@ public class ChessGameFrame extends JFrame {
         addLabel();
         addSaveButton();
         addLoadButton();
+        addLabelCurrentPlayer();
 
         remake();
         undo();
@@ -143,6 +144,16 @@ public class ChessGameFrame extends JFrame {
             else
                 JOptionPane.showMessageDialog(this, "error");
         });
+    }
+
+
+    private void addLabelCurrentPlayer(){
+        String player = chessboard.player;
+        JLabel current = new JLabel(player);
+        current.setLocation(HEIGHT+60, HEIGHT / 10 + 260);
+        current.setSize(150, 50);
+        current.setFont(new Font("Rockwell", Font.BOLD, 20));
+        add(current);
     }
 
 }

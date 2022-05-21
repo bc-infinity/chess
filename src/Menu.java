@@ -1,3 +1,4 @@
+import view.BGM;
 import view.ChessGameFrame;
 
 import javax.swing.*;
@@ -42,6 +43,13 @@ public class Menu extends JFrame implements ActionListener {
             SwingUtilities.invokeLater(() -> {
                 ChessGameFrame mainFrame = new ChessGameFrame(900, 600);
                 mainFrame.setVisible(true);
+
+
+                //背景音乐启动
+                BGM audioPlayWave = new BGM("./images/_Wave_1.wav");// 开音乐 音樂名
+                audioPlayWave.start();
+                @SuppressWarnings("unused")
+                int musicOpenLab = 1;
 
 
                 ImageIcon img = new ImageIcon("./images/IMG_9006(20220521-092825).JPG");

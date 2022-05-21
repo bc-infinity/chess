@@ -6,4 +6,4 @@ ________
 ________
 pppppppp
 rnbqkbnr
-w
+b
