@@ -2,6 +2,7 @@ package controller;
 
 import view.Chessboard;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -69,19 +70,23 @@ public class GameController {
                                     return chessData;
                                 } else {
                                     System.out.println("103");
+                                    JOptionPane.showMessageDialog(new JOptionPane(), "103");
                                     return null;
                                 }
                             } else {
                                 System.out.println("102");
+                                JOptionPane.showMessageDialog(new JOptionPane(), "102");
                                 return null;
                             }
 
                         } else {
                             System.out.println("101");
+                            JOptionPane.showMessageDialog(new JOptionPane(), "101");
                             return null;
                         }
                     } else {
                         System.out.println("104");
+                        JOptionPane.showMessageDialog(new JOptionPane(), "104");
                         return null;
                     }
                 } else {

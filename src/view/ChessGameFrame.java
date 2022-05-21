@@ -148,6 +148,7 @@ public class ChessGameFrame extends JFrame {
                 //System.out.println(chessboard.steps.size());
 
                 chessboard.loadGame(chessboard.steps.get(chessboard.steps.size()-1));
+                chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
                 add(chessboard);
             }
             else

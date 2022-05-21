@@ -83,16 +83,16 @@ public class Chessboard extends JComponent {
         chess2.repaint();
         if (ifBlackCheckmate(chessComponents)) {
             if (blackEscapeCheckmate(chessComponents)){
-
+                JOptionPane.showMessageDialog(this, "Pay attention: Black");
             }else{
-
+                JOptionPane.showMessageDialog(this, "Win: White");
             }
         }
         if (ifWhiteCheckmate(chessComponents)) {
             if(whiteEscapeCheckmate(chessComponents)){
-
+                JOptionPane.showMessageDialog(this, "Pay attention: White");
             }else {
-
+                JOptionPane.showMessageDialog(this, "Win: Black");
             }
         }
     }
