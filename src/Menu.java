@@ -42,6 +42,15 @@ public class Menu extends JFrame implements ActionListener {
             SwingUtilities.invokeLater(() -> {
                 ChessGameFrame mainFrame = new ChessGameFrame(900, 600);
                 mainFrame.setVisible(true);
+
+
+                ImageIcon img = new ImageIcon("./images/IMG_9006(20220521-092825).JPG");
+                JLabel imgLabel = new JLabel(img);
+                mainFrame.getLayeredPane().add(imgLabel, Integer.valueOf(Integer.MIN_VALUE));
+                imgLabel.setBounds(0,0,900,600);
+                Container cp = mainFrame.getContentPane();
+                cp.setLayout(new BorderLayout());
+                ((JPanel)cp).setOpaque(false);
             });
         }
         if(e.getSource() == Game_Over){
