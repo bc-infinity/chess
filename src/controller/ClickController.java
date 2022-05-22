@@ -24,12 +24,12 @@ public class ClickController {
                 chessComponent.setSelected(true);
                 first = chessComponent;
                 first.repaint();
-                List<ChessboardPoint> show=chessComponent.canMoveTo(chessboard.getChessComponents());
-                if(show.size()>0){
-                    for(int i=0;i<8;i++){
-                        for (int j=0;j<8;j++){
-                            for(int k=0;k<show.size();k++){
-                                if (show.get(k).getX()==i&&show.get(k).getY()==j){
+                List<ChessboardPoint> show = chessComponent.canMoveTo(chessboard.getChessComponents());
+                if (show.size() > 0) {
+                    for (int i = 0; i < 8; i++) {
+                        for (int j = 0; j < 8; j++) {
+                            for (int k = 0; k < show.size(); k++) {
+                                if (show.get(k).getX() == i && show.get(k).getY() == j) {
                                     chessboard.getChessComponents()[i][j].setAvailable(true);
                                 }
                             }
@@ -44,9 +44,9 @@ public class ClickController {
                 ChessComponent recordFirst = first;
                 first = null;
                 recordFirst.repaint();
-                for(int i=0;i<8;i++){
-                    for (int j=0;j<8;j++){
-                        if (chessboard.getChessComponents()[i][j].isAvailable()){
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 8; j++) {
+                        if (chessboard.getChessComponents()[i][j].isAvailable()) {
                             chessboard.getChessComponents()[i][j].setAvailable(false);
                         }
                     }
@@ -57,9 +57,9 @@ public class ClickController {
                 chessboard.swapChessComponents(first, chessComponent);
                 chessboard.swapColor();
                 first.setSelected(false);
-                for(int i=0;i<8;i++){
-                    for (int j=0;j<8;j++){
-                        if (chessboard.getChessComponents()[i][j].isAvailable()){
+                for (int i = 0; i < 8; i++) {
+                    for (int j = 0; j < 8; j++) {
+                        if (chessboard.getChessComponents()[i][j].isAvailable()) {
                             chessboard.getChessComponents()[i][j].setAvailable(false);
                         }
                     }
@@ -93,7 +93,7 @@ public class ClickController {
     }
 
     public void Enter(ChessComponent chessComponent) {
-        if (chessComponent.getChessColor() != ChessColor.NONE) {
+        if (chessComponent.getChessColor() != ChessColor.NONE || chessComponent.isAvailable()) {
             chessComponent.setEntered(true);
             second = chessComponent;
             second.repaint();
@@ -101,11 +101,9 @@ public class ClickController {
     }
 
     public void Exited(ChessComponent chessComponent) {
-        if (chessComponent.getChessColor() != ChessColor.NONE) {
-            chessComponent.setEntered(false);
-            second = chessComponent;
-            second.repaint();
-        }
+        chessComponent.setEntered(false);
+        second = chessComponent;
+        second.repaint();
     }
 }
 
