@@ -54,6 +54,7 @@ public class GameController {
         try {
             List<String> chessData = Files.readAllLines(Path.of(path));
             chessboard.loadGame(chessData);
+            chessboard.firstStep(chessData);
             if(chessboard.getCurrentColor()== ChessColor.BLACK){
                 playerLabel.setText(ChessColor.BLACK.getName()+"'s");
             }else{
@@ -131,7 +132,7 @@ public class GameController {
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 char piece = chessData.get(i).charAt(j);
-                if (piece < 65 || (piece > 90 && piece < 97 && piece != 95) || piece > 122) {
+                if (piece!='K'&&piece!='k'&&piece!='Q'&&piece!='q'&&piece!='B'&&piece!='b'&&piece!='R'&&piece!='r'&&piece!='N'&&piece!='n'&&piece!='P'&&piece!='p'&&piece!='_') {
                     ok = false;
                     break;
                 }

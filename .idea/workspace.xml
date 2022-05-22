@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34edf1e0-b4f2-49df-ba70-2a84c1e0469b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/view/ChessGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ChessGameFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/Draw_noMoveChess.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/controller/ClickController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/controller/ClickController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/controller/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/controller/GameController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/chess/view/Chessboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/chess/view/Chessboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource/save2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ClickController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ClickController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/Chessboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/Chessboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +76,7 @@
       <updated>1653096031869</updated>
       <workItem from="1653097665065" duration="1132000" />
       <workItem from="1653121162642" duration="9389000" />
-      <workItem from="1653191651241" duration="326000" />
+      <workItem from="1653191651241" duration="6248000" />
     </task>
     <servers />
   </component>

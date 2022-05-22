@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static view.ChessGameFrame.setPlayerLabel;
 
@@ -47,6 +48,9 @@ public class Chessboard extends JComponent {
 
     public List<String> getLastStep(){
         return steps.get(steps.size()-1);
+    }
+    public void firstStep(List<String> chessData){
+        steps.add(chessData);
     }
 
     public ChessComponent[][] getChessComponents() {
@@ -371,6 +375,64 @@ public class Chessboard extends JComponent {
             }
         }
         return safe;
+    }
+    public void noMoveDraw(){
+        boolean canMove=false;
+        if (currentColor==ChessColor.BLACK){
+            for(int i=0;i<8;i++){
+                for(int j=0;j<8;j++){
+                    if(chessComponents[i][j].getChessColor()==ChessColor.BLACK){
+                        if(chessComponents[i][j].canMoveTo(chessComponents).size()!=0){
+                            canMove=true;
+                            break;
+                        }
+                    }
+                }
+                if (canMove){
+                    break;
+                }
+            }
+            if(!canMove){
+                JOptionPane.showMessageDialog(this, "Draw: Black has no chess to move.");
+            }
+        }else {
+            for(int i=0;i<8;i++){
+                for(int j=0;j<8;j++){
+                    if(chessComponents[i][j].getChessColor()==ChessColor.WHITE){
+                        if(chessComponents[i][j].canMoveTo(chessComponents).size()!=0){
+                            canMove=true;
+                            break;
+                        }
+                    }
+                }
+                if (canMove){
+                    break;
+                }
+            }
+            if(!canMove){
+                JOptionPane.showMessageDialog(this, "Draw: White has no chess to move.");
+            }
+        }
+    }
+    public void threeTimesDraw(){
+        int n=0;
+        if(steps.size()>=3){
+            for (int i=0;i<steps.size()-1;i++){
+                boolean same=true;
+                for(int j=0;j<8;j++){
+                    if (!Objects.equals(steps.get(i).get(j), steps.get(steps.size() - 1).get(j))){
+                        same=false;
+                        break;
+                    }
+                }
+                if(same){
+                    n++;
+                }
+            }
+            if(n>=3){
+                JOptionPane.showMessageDialog(this, "Draw: More than three times.");
+            }
+        }
     }
 }
 
