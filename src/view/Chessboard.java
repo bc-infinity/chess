@@ -162,17 +162,49 @@ public class Chessboard extends JComponent {
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
     }
     public void checkMate(){
-        if (ifBlackCheckmate(chessComponents)) {
-            if (blackEscapeCheckmate(chessComponents)){
-                JOptionPane.showMessageDialog(this, "Pay attention: Black");
-            }else{
+        boolean life = false;
+        if (currentColor==ChessColor.BLACK) {
+            if (ifBlackCheckmate(chessComponents)) {
+                if (blackEscapeCheckmate(chessComponents)) {
+                    JOptionPane.showMessageDialog(this, "Pay attention: Black");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Win: White");
+                }
+            }
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    if (chessComponents[i][j] instanceof KingChessComponent && chessComponents[i][j].getChessColor() == ChessColor.BLACK) {
+                        life = true;
+                        break;
+                    }
+                }
+                if (life) {
+                    break;
+                }
+            }
+            if (!life) {
                 JOptionPane.showMessageDialog(this, "Win: White");
             }
-        }
-        if (ifWhiteCheckmate(chessComponents)) {
-            if(whiteEscapeCheckmate(chessComponents)){
-                JOptionPane.showMessageDialog(this, "Pay attention: White");
-            }else {
+        }else {
+            if (ifWhiteCheckmate(chessComponents)) {
+                if (whiteEscapeCheckmate(chessComponents)) {
+                    JOptionPane.showMessageDialog(this, "Pay attention: White");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Win: Black");
+                }
+            }
+            for (int i = 0; i < 8; i++) {
+                for (int j = 0; j < 8; j++) {
+                    if (chessComponents[i][j] instanceof KingChessComponent && chessComponents[i][j].getChessColor() == ChessColor.WHITE) {
+                        life = true;
+                        break;
+                    }
+                }
+                if (life) {
+                    break;
+                }
+            }
+            if (!life) {
                 JOptionPane.showMessageDialog(this, "Win: Black");
             }
         }
