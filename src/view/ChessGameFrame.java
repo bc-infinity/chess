@@ -4,7 +4,9 @@ import controller.GameController;
 import model.ChessColor;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileSystemView;
 import java.awt.*;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -99,7 +101,17 @@ public class ChessGameFrame extends JFrame {
 
         button.addActionListener(e -> {
             System.out.println("Click load");
-            String path = JOptionPane.showInputDialog(this, "Input Path here");
+
+            String path = "";
+            JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+            //int returnValue = jfc.showOpenDialog(null);
+            int returnValue = jfc.showSaveDialog(null);
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = jfc.getSelectedFile();
+                path = selectedFile.getAbsolutePath();
+            }
+
+            //String path = JOptionPane.showInputDialog(this, "Input Path here");
             if (gameController.loadGame(path) != null) {
                 remove(this.chessboard);
                 repaint();
@@ -121,8 +133,21 @@ public class ChessGameFrame extends JFrame {
         gameController.setChessboard(chessboard);
         button.addActionListener(e -> {
             System.out.println("Click save");
-            String path = JOptionPane.showInputDialog(this, "Input Path here");
-            gameController.writeDataToFile(path);
+
+            String path = "";
+            JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+            jfc.setDialogTitle("Choose a directory to save your file: ");
+            jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+
+            int returnValue = jfc.showSaveDialog(null);
+            if (returnValue == JFileChooser.APPROVE_OPTION) {
+                if (jfc.getSelectedFile().isDirectory()) {
+                    path = jfc.getSelectedFile().toString();
+                }
+            }
+
+            String name = JOptionPane.showInputDialog(this, "Input name here");
+            gameController.writeDataToFile(path + "/" + name + ".txt");
         });
     }
 
@@ -169,9 +194,6 @@ public class ChessGameFrame extends JFrame {
         });
     }
 
-
-
-
     private void changeBackground(){
         JButton Undo = new JButton("ChangeBackGround");
         Undo.setLocation(HEIGHT, HEIGHT / 10 + 270);
@@ -211,7 +233,5 @@ public class ChessGameFrame extends JFrame {
             }
         });
     }
-
-
 
 }
