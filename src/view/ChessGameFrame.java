@@ -78,6 +78,7 @@ public class ChessGameFrame extends JFrame {
         playerLabel.setLocation(HEIGHT + 60, HEIGHT / 10 - 30);
         playerLabel.setSize(150, 50);
         playerLabel.setFont(new Font("Rockwell", Font.BOLD, 20));
+        playerLabel.setForeground(Color.white);
         add(playerLabel);
         repaint();
     }

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34edf1e0-b4f2-49df-ba70-2a84c1e0469b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/ChessGameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ChessGameFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,6 +68,7 @@
       <updated>1653096031869</updated>
       <workItem from="1653097665065" duration="1132000" />
       <workItem from="1653121162642" duration="9389000" />
+      <workItem from="1653191651241" duration="326000" />
     </task>
     <servers />
   </component>
