@@ -104,8 +104,8 @@ public class ChessGameFrame extends JFrame {
 
             String path = "";
             JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-            //int returnValue = jfc.showOpenDialog(null);
-            int returnValue = jfc.showSaveDialog(null);
+            int returnValue = jfc.showOpenDialog(null);
+            //int returnValue = jfc.showSaveDialog(null);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 File selectedFile = jfc.getSelectedFile();
                 path = selectedFile.getAbsolutePath();
