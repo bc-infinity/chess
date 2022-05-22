@@ -33,6 +33,7 @@ public class ClickController {
                 chessboard.swapColor();
 
                 first.setSelected(false);
+                chessboard.checkMate();
                 first = null;
             }
         }

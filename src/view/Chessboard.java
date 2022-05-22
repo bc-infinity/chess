@@ -81,20 +81,7 @@ public class Chessboard extends JComponent {
 
         chess1.repaint();
         chess2.repaint();
-        if (ifBlackCheckmate(chessComponents)) {
-            if (blackEscapeCheckmate(chessComponents)){
-                JOptionPane.showMessageDialog(this, "Pay attention: Black");
-            }else{
-                JOptionPane.showMessageDialog(this, "Win: White");
-            }
-        }
-        if (ifWhiteCheckmate(chessComponents)) {
-            if(whiteEscapeCheckmate(chessComponents)){
-                JOptionPane.showMessageDialog(this, "Pay attention: White");
-            }else {
-                JOptionPane.showMessageDialog(this, "Win: Black");
-            }
-        }
+        //checkMate();
     }
 
     public void swapColor() {
@@ -169,6 +156,22 @@ public class Chessboard extends JComponent {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    }
+    public void checkMate(){
+        if (ifBlackCheckmate(chessComponents)) {
+            if (blackEscapeCheckmate(chessComponents)){
+                JOptionPane.showMessageDialog(this, "Pay attention: Black");
+            }else{
+                JOptionPane.showMessageDialog(this, "Win: White");
+            }
+        }
+        if (ifWhiteCheckmate(chessComponents)) {
+            if(whiteEscapeCheckmate(chessComponents)){
+                JOptionPane.showMessageDialog(this, "Pay attention: White");
+            }else {
+                JOptionPane.showMessageDialog(this, "Win: Black");
+            }
+        }
     }
 
 
@@ -370,3 +373,4 @@ public class Chessboard extends JComponent {
         return safe;
     }
 }
+
