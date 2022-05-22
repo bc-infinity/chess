@@ -40,6 +40,7 @@ public abstract class ChessComponent extends JComponent {
     protected final ChessColor chessColor;
     private boolean selected;
     private boolean entered;
+    private boolean available;
 
     protected ChessComponent(ChessboardPoint chessboardPoint, Point location, ChessColor chessColor, ClickController clickController, int size) {
         enableEvents(AWTEvent.MOUSE_EVENT_MASK);
@@ -69,12 +70,18 @@ public abstract class ChessComponent extends JComponent {
     public boolean isEntered(){
         return entered;
     }
+    public boolean isAvailable(){
+        return available;
+    }
 
     public void setSelected(boolean selected) {
         this.selected = selected;
     }
     public void setEntered(boolean entered){
         this.entered=entered;
+    }
+    public void setAvailable(boolean available){
+        this.available=available;
     }
 
     /**
@@ -139,8 +146,15 @@ public abstract class ChessComponent extends JComponent {
             Color color=Color.lightGray;
             g.setColor(color);
         }
-
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        for (int i=0;i<8;i++){
+            for (int j=0;j<8;j++){
+                if (isAvailable()){
+                    g.setColor(Color.decode("#B0C4DE"));
+                    g.fillOval(getWidth()/4, getWidth()/4, getWidth()/2 , getHeight()/2);
+                }
+            }
+        }
     }
 
 

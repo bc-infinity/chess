@@ -4,11 +4,15 @@ package controller;
 import model.ChessColor;
 import model.ChessComponent;
 import view.Chessboard;
+import view.ChessboardPoint;
+
+import java.util.List;
 
 public class ClickController {
     private final Chessboard chessboard;
     private ChessComponent first;
     private ChessComponent second;
+    private ChessComponent third;
 
     public ClickController(Chessboard chessboard) {
         this.chessboard = chessboard;
@@ -20,6 +24,19 @@ public class ClickController {
                 chessComponent.setSelected(true);
                 first = chessComponent;
                 first.repaint();
+                List<ChessboardPoint> show=chessComponent.canMoveTo(chessboard.getChessComponents());
+                if(show.size()>0){
+                    for(int i=0;i<8;i++){
+                        for (int j=0;j<8;j++){
+                            for(int k=0;k<show.size();k++){
+                                if (show.get(k).getX()==i&&show.get(k).getY()==j){
+                                    chessboard.getChessComponents()[i][j].setAvailable(true);
+                                }
+                            }
+                        }
+                    }
+                }
+                chessboard.repaint();
             }
         } else {
             if (first == chessComponent) { // 再次点击取消选取
@@ -27,11 +44,27 @@ public class ClickController {
                 ChessComponent recordFirst = first;
                 first = null;
                 recordFirst.repaint();
+                for(int i=0;i<8;i++){
+                    for (int j=0;j<8;j++){
+                        if (chessboard.getChessComponents()[i][j].isAvailable()){
+                            chessboard.getChessComponents()[i][j].setAvailable(false);
+                        }
+                    }
+                }
+                chessboard.repaint();
             } else if (handleSecond(chessComponent)) {
                 //repaint in swap chess method.
                 chessboard.swapChessComponents(first, chessComponent);
                 chessboard.swapColor();
                 first.setSelected(false);
+                for(int i=0;i<8;i++){
+                    for (int j=0;j<8;j++){
+                        if (chessboard.getChessComponents()[i][j].isAvailable()){
+                            chessboard.getChessComponents()[i][j].setAvailable(false);
+                        }
+                    }
+                }
+                chessboard.repaint();
                 chessboard.noMoveDraw();
                 chessboard.checkMate();
                 chessboard.threeTimesDraw();
