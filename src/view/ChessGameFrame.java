@@ -134,11 +134,10 @@ public class ChessGameFrame extends JFrame {
         button.addActionListener(e -> {
             System.out.println("Click save");
 
-            String path = "";
+            String path = null;
             JFileChooser jfc = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
             jfc.setDialogTitle("Choose a directory to save your file: ");
             jfc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-
             int returnValue = jfc.showSaveDialog(null);
             if (returnValue == JFileChooser.APPROVE_OPTION) {
                 if (jfc.getSelectedFile().isDirectory()) {
@@ -146,8 +145,12 @@ public class ChessGameFrame extends JFrame {
                 }
             }
 
-            String name = JOptionPane.showInputDialog(this, "Input name here");
-            gameController.writeDataToFile(path + "/" + name + ".txt");
+            if(  path != null ){
+                String name = JOptionPane.showInputDialog(this, "Input name here");
+                if( name != null )
+                    gameController.writeDataToFile(path + "/" + name + ".txt");
+            }
+
         });
     }
 
@@ -195,13 +198,13 @@ public class ChessGameFrame extends JFrame {
     }
 
     private void changeBackground(){
-        JButton Undo = new JButton("ChangeBackGround");
-        Undo.setLocation(HEIGHT, HEIGHT / 10 + 270);
-        Undo.setSize(200, 30);
-        Undo.setFont(new Font("Rockwell", Font.BOLD, 15));
-        add(Undo);
+        JButton changeBackGround = new JButton("ChangeBackGround");
+        changeBackGround.setLocation(HEIGHT, HEIGHT / 10 + 270);
+        changeBackGround.setSize(200, 30);
+        changeBackGround.setFont(new Font("Rockwell", Font.BOLD, 15));
+        add(changeBackGround);
 
-        Undo.addActionListener(e -> {
+        changeBackGround.addActionListener(e -> {
             if( n == 0 ){
                 getLayeredPane().remove(imgLabel);
                 repaint();
