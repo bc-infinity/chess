@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static view.ChessGameFrame.roundLabel;
 import static view.ChessGameFrame.setPlayerLabel;
 
 
@@ -143,6 +144,7 @@ public class Chessboard extends JComponent {
         if (getCurrentColor() == ChessColor.WHITE)
             result.add("w");
         steps.add(result);
+        roundLabel.setText("Round:"+(steps.size()+1)/2);
 
 
     }

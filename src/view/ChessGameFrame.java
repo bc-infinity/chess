@@ -23,6 +23,7 @@ public class ChessGameFrame extends JFrame {
     private GameController gameController;
     Chessboard chessboard;
     public static JLabel playerLabel;
+    public static JLabel roundLabel;
     private int n = 0;
     private JLabel imgLabel;
     private Container cp;
@@ -42,15 +43,16 @@ public class ChessGameFrame extends JFrame {
         ImageIcon img = new ImageIcon("./images/20211016120322.jpg");
         imgLabel = new JLabel(img);
         getLayeredPane().add(imgLabel, Integer.valueOf(Integer.MIN_VALUE));
-        imgLabel.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
-        imgLabel.setLocation(0,0);
+        imgLabel.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
+        imgLabel.setLocation(0, 0);
         cp = getContentPane();
         cp.setLayout(null);
-        ((JPanel)cp).setOpaque(false);
+        ((JPanel) cp).setOpaque(false);
 
 
         addChessboard();
         addPlayerLabel();
+        addRoundLabel();
         addSaveButton();
         addLoadButton();
         //addLabelCurrentPlayer();
@@ -75,17 +77,29 @@ public class ChessGameFrame extends JFrame {
      * 在游戏面板中添加标签
      */
     private void addPlayerLabel() {
-        playerLabel = new JLabel(this.gameController.getChessboard().getCurrentColor().getName()+"'s");
+        playerLabel = new JLabel(this.gameController.getChessboard().getCurrentColor().getName() + "'s");
         System.out.println(this.gameController.getChessboard().getCurrentColor().getName());
-        playerLabel.setLocation(HEIGHT + 60, HEIGHT / 10 - 30);
+        playerLabel.setLocation(HEIGHT, HEIGHT / 10 - 30);
         playerLabel.setSize(150, 50);
         playerLabel.setFont(new Font("Rockwell", Font.BOLD, 20));
         playerLabel.setForeground(Color.white);
         add(playerLabel);
         repaint();
     }
-    public static void setPlayerLabel(ChessColor chessColor){
-        playerLabel.setText(chessColor.getName()+"'s");
+
+    private void addRoundLabel() {
+        roundLabel = new JLabel("Round:" + this.gameController.getChessboard().steps.size());
+        System.out.println(this.gameController.getChessboard().steps.size());
+        roundLabel.setLocation(HEIGHT + 100, HEIGHT / 10 - 30);
+        roundLabel.setSize(150, 50);
+        roundLabel.setFont(new Font("Rockwell", Font.BOLD, 20));
+        roundLabel.setForeground(Color.white);
+        add(roundLabel);
+        repaint();
+    }
+
+    public static void setPlayerLabel(ChessColor chessColor) {
+        playerLabel.setText(chessColor.getName() + "'s");
         System.out.println(chessColor.getName());
     }
 
@@ -145,9 +159,9 @@ public class ChessGameFrame extends JFrame {
                 }
             }
 
-            if(  path != null ){
+            if (path != null) {
                 String name = JOptionPane.showInputDialog(this, "Input name here");
-                if( name != null )
+                if (name != null)
                     gameController.writeDataToFile(path + "/" + name + ".txt");
             }
 
@@ -160,7 +174,6 @@ public class ChessGameFrame extends JFrame {
         Remake.setSize(200, 50);
         Remake.setFont(new Font("Rockwell", Font.BOLD, 20));
         add(Remake);
-
         Remake.addActionListener(e -> {
             System.out.println("Click remake");
             remove(this.chessboard);
@@ -169,10 +182,12 @@ public class ChessGameFrame extends JFrame {
             gameController = new GameController(chessboard);
             chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
             add(chessboard);
+            playerLabel.setText(this.gameController.getChessboard().getCurrentColor().getName() + "'s");
+            roundLabel.setText("Round:" + this.gameController.getChessboard().steps.size());
         });
     }
 
-    private void undo(){
+    private void undo() {
         JButton Undo = new JButton("undo");
         Undo.setLocation(HEIGHT, HEIGHT / 10 + 210);
         Undo.setSize(200, 50);
@@ -180,57 +195,57 @@ public class ChessGameFrame extends JFrame {
         add(Undo);
 
         Undo.addActionListener(e -> {
-            if( chessboard.steps.size() > 1 ){
+            if (chessboard.steps.size() > 1) {
                 System.out.println("Click undo");
                 remove(chessboard);
                 repaint();
 
-                chessboard.steps.remove(chessboard.steps.size()-1);
+                chessboard.steps.remove(chessboard.steps.size() - 1);
 
-                chessboard.loadGame(chessboard.steps.get(chessboard.steps.size()-1));
+                chessboard.loadGame(chessboard.steps.get(chessboard.steps.size() - 1));
                 chessboard.setLocation(HEIGHT / 10, HEIGHT / 10 - 10);
                 add(chessboard);
-                playerLabel.setText(this.gameController.getChessboard().getCurrentColor().getName()+"'s");
-            }
-            else
+                playerLabel.setText(this.gameController.getChessboard().getCurrentColor().getName() + "'s");
+                roundLabel.setText("Round:" + (this.gameController.getChessboard().steps.size()+1)/2);
+            } else
                 JOptionPane.showMessageDialog(this, "error");
         });
     }
 
-    private void changeBackground(){
-        JButton changeBackGround = new JButton("ChangeBackGround");
+    private void changeBackground() {
+        JButton changeBackGround = new JButton("Change Background");
         changeBackGround.setLocation(HEIGHT, HEIGHT / 10 + 270);
         changeBackGround.setSize(200, 30);
         changeBackGround.setFont(new Font("Rockwell", Font.BOLD, 15));
         add(changeBackGround);
 
         changeBackGround.addActionListener(e -> {
-            if( n == 0 ){
+            if (n == 0) {
                 getLayeredPane().remove(imgLabel);
                 repaint();
 
                 ImageIcon img = new ImageIcon("images/IMG_9006(20220521-092825).JPG");
                 imgLabel = new JLabel(img);
                 getLayeredPane().add(imgLabel, Integer.valueOf(Integer.MIN_VALUE));
-                imgLabel.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
-                imgLabel.setLocation(0,0);
+                imgLabel.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
+                imgLabel.setLocation(0, 0);
                 cp = getContentPane();
                 cp.setLayout(null);
-                ((JPanel)cp).setOpaque(false);
+                ((JPanel) cp).setOpaque(false);
 
                 n = 1;
-            }else {
+            } else {
                 getLayeredPane().remove(imgLabel);
                 repaint();
 
                 ImageIcon img = new ImageIcon("./images/20211016120322.jpg");
                 imgLabel = new JLabel(img);
                 getLayeredPane().add(imgLabel, Integer.valueOf(Integer.MIN_VALUE));
-                imgLabel.setBounds(0,0,img.getIconWidth(),img.getIconHeight());
-                imgLabel.setLocation(0,0);
+                imgLabel.setBounds(0, 0, img.getIconWidth(), img.getIconHeight());
+                imgLabel.setLocation(0, 0);
                 cp = getContentPane();
                 cp.setLayout(null);
-                ((JPanel)cp).setOpaque(false);
+                ((JPanel) cp).setOpaque(false);
 
                 n = 0;
             }

@@ -13,6 +13,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 import static view.ChessGameFrame.playerLabel;
+import static view.ChessGameFrame.roundLabel;
 
 public class GameController {
     private Chessboard chessboard;
@@ -60,6 +61,7 @@ public class GameController {
             }else{
                 playerLabel.setText(ChessColor.WHITE.getName()+"'s");
             }
+            roundLabel.setText("Round:" + chessboard.steps.size());
             return chessData;
         } catch (IOException e) {
             e.printStackTrace();
