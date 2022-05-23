@@ -9,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static view.ChessGameFrame.roundLabel;
-import static view.ChessGameFrame.setPlayerLabel;
+import static view.ChessGameFrame.*;
 
 
 /**
@@ -166,6 +165,14 @@ public class Chessboard extends JComponent {
     public void checkMate(){
         boolean life = false;
         if (currentColor==ChessColor.BLACK) {
+            if (ifWhiteCheckmate(chessComponents)) {
+                JOptionPane.showMessageDialog(this, "Warning, do not send your king to be eaten.");
+                steps.remove(steps.size()-1);
+                loadGame(steps.get(steps.size()-1));
+                setPlayerLabel(currentColor);
+                roundLabel.setText("Round:"+(steps.size()+1)/2);
+                repaint();
+            }
             if (ifBlackCheckmate(chessComponents)) {
                 if (blackEscapeCheckmate(chessComponents)) {
                     JOptionPane.showMessageDialog(this, "Pay attention: Black");
@@ -173,21 +180,29 @@ public class Chessboard extends JComponent {
                     JOptionPane.showMessageDialog(this, "Win: White");
                 }
             }
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 8; j++) {
-                    if (chessComponents[i][j] instanceof KingChessComponent && chessComponents[i][j].getChessColor() == ChessColor.BLACK) {
-                        life = true;
-                        break;
-                    }
-                }
-                if (life) {
-                    break;
-                }
-            }
-            if (!life) {
-                JOptionPane.showMessageDialog(this, "Win: White");
-            }
+//            for (int i = 0; i < 8; i++) {
+//                for (int j = 0; j < 8; j++) {
+//                    if (chessComponents[i][j] instanceof KingChessComponent && chessComponents[i][j].getChessColor() == ChessColor.BLACK) {
+//                        life = true;
+//                        break;
+//                    }
+//                }
+//                if (life) {
+//                    break;
+//                }
+//            }
+//            if (!life) {
+//                JOptionPane.showMessageDialog(this, "Win: White");
+//            }
         }else {
+            if (ifBlackCheckmate(chessComponents)) {
+                JOptionPane.showMessageDialog(this, "Warning, do not send your king to be eaten.");
+                steps.remove(steps.size()-1);
+                loadGame(steps.get(steps.size()-1));
+                setPlayerLabel(currentColor);
+                roundLabel.setText("Round:"+(steps.size()+1)/2);
+                repaint();
+            }
             if (ifWhiteCheckmate(chessComponents)) {
                 if (whiteEscapeCheckmate(chessComponents)) {
                     JOptionPane.showMessageDialog(this, "Pay attention: White");
@@ -195,20 +210,20 @@ public class Chessboard extends JComponent {
                     JOptionPane.showMessageDialog(this, "Win: Black");
                 }
             }
-            for (int i = 0; i < 8; i++) {
-                for (int j = 0; j < 8; j++) {
-                    if (chessComponents[i][j] instanceof KingChessComponent && chessComponents[i][j].getChessColor() == ChessColor.WHITE) {
-                        life = true;
-                        break;
-                    }
-                }
-                if (life) {
-                    break;
-                }
-            }
-            if (!life) {
-                JOptionPane.showMessageDialog(this, "Win: Black");
-            }
+//            for (int i = 0; i < 8; i++) {
+//                for (int j = 0; j < 8; j++) {
+//                    if (chessComponents[i][j] instanceof KingChessComponent && chessComponents[i][j].getChessColor() == ChessColor.WHITE) {
+//                        life = true;
+//                        break;
+//                    }
+//                }
+//                if (life) {
+//                    break;
+//                }
+//            }
+//            if (!life) {
+//                JOptionPane.showMessageDialog(this, "Win: Black");
+//            }
         }
     }
 
