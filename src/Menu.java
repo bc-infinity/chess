@@ -7,11 +7,11 @@ import javax.swing.*;
         import java.awt.event.ActionListener;
 
 public class Menu extends JFrame implements ActionListener {
-    //定义两个按钮
+
     private final JButton Game_Start;
     private final JButton Game_Over;
     public Menu(){
-        //定义按钮的排列方式
+
         setLayout(new FlowLayout());
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -44,8 +44,8 @@ public class Menu extends JFrame implements ActionListener {
                 ChessGameFrame mainFrame = new ChessGameFrame(900, 600);
                 mainFrame.setVisible(true);
 
-                //背景音乐启动
-                BGM audioPlayWave = new BGM("./images/_Wave_1.wav");// 开音乐 音樂名
+
+                BGM audioPlayWave = new BGM("./images/Dream.wav");// 开音乐 音樂名
                 audioPlayWave.start();
                 @SuppressWarnings("unused")
                 int musicOpenLab = 1;

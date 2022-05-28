@@ -85,7 +85,6 @@ public class Chessboard extends JComponent {
 
         chess1.repaint();
         chess2.repaint();
-        //checkMate();
     }
 
     public void swapColor() {
