@@ -95,11 +95,29 @@ public class Chessboard extends JComponent {
         for (int i = 0; i < 8; i++) {
             StringBuilder str = new StringBuilder();
             for (int j = 0; j < 8; j++) {
+                if (chessComponents[i][j] instanceof KingChessComponent) {
+                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
+                        str.append('K');
+                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
+                        str.append('k');
+                }
+                if (chessComponents[i][j] instanceof QueenChessComponent) {
+                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
+                        str.append('Q');
+                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
+                        str.append('q');
+                }
                 if (chessComponents[i][j] instanceof RookChessComponent) {
                     if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
                         str.append('R');
                     if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
                         str.append('r');
+                }
+                if (chessComponents[i][j] instanceof BishopChessComponent) {
+                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
+                        str.append('B');
+                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
+                        str.append('b');
                 }
                 if (chessComponents[i][j] instanceof KnightChessComponent) {
                     if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
@@ -112,24 +130,6 @@ public class Chessboard extends JComponent {
                         str.append('P');
                     if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
                         str.append('p');
-                }
-                if (chessComponents[i][j] instanceof QueenChessComponent) {
-                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
-                        str.append('Q');
-                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
-                        str.append('q');
-                }
-                if (chessComponents[i][j] instanceof BishopChessComponent) {
-                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
-                        str.append('B');
-                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
-                        str.append('b');
-                }
-                if (chessComponents[i][j] instanceof KingChessComponent) {
-                    if (chessComponents[i][j].getChessColor() == ChessColor.BLACK)
-                        str.append('K');
-                    if (chessComponents[i][j].getChessColor() == ChessColor.WHITE)
-                        str.append('k');
                 }
                 if (chessComponents[i][j] instanceof EmptySlotComponent) {
                     str.append('_');
@@ -251,18 +251,18 @@ public class Chessboard extends JComponent {
         for (int i = 0; i < chessComponents.length; i++) {
             for (int j = 0; j < chessComponents[i].length; j++) {
                 switch (chessData.get(i).charAt(j)) {
-                    case ('P') -> chessComponents[i][j] = new PawnChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.BLACK, clickController, CHESS_SIZE);
-                    case ('p') -> chessComponents[i][j] = new PawnChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.WHITE, clickController, CHESS_SIZE);
+                    case ('K') -> chessComponents[i][j] = new KingChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.BLACK, clickController, CHESS_SIZE);
+                    case ('k') -> chessComponents[i][j] = new KingChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.WHITE, clickController, CHESS_SIZE);
+                    case ('Q') -> chessComponents[i][j] = new QueenChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.BLACK, clickController, CHESS_SIZE);
+                    case ('q') -> chessComponents[i][j] = new QueenChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.WHITE, clickController, CHESS_SIZE);
                     case ('R') -> chessComponents[i][j] = new RookChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.BLACK, clickController, CHESS_SIZE);
                     case ('r') -> chessComponents[i][j] = new RookChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.WHITE, clickController, CHESS_SIZE);
                     case ('N') -> chessComponents[i][j] = new KnightChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.BLACK, clickController, CHESS_SIZE);
                     case ('n') -> chessComponents[i][j] = new KnightChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.WHITE, clickController, CHESS_SIZE);
                     case ('B') -> chessComponents[i][j] = new BishopChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.BLACK, clickController, CHESS_SIZE);
                     case ('b') -> chessComponents[i][j] = new BishopChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.WHITE, clickController, CHESS_SIZE);
-                    case ('Q') -> chessComponents[i][j] = new QueenChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.BLACK, clickController, CHESS_SIZE);
-                    case ('q') -> chessComponents[i][j] = new QueenChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.WHITE, clickController, CHESS_SIZE);
-                    case ('K') -> chessComponents[i][j] = new KingChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.BLACK, clickController, CHESS_SIZE);
-                    case ('k') -> chessComponents[i][j] = new KingChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.WHITE, clickController, CHESS_SIZE);
+                    case ('P') -> chessComponents[i][j] = new PawnChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.BLACK, clickController, CHESS_SIZE);
+                    case ('p') -> chessComponents[i][j] = new PawnChessComponent(new ChessboardPoint(i,j), calculatePoint(i, j), ChessColor.WHITE, clickController, CHESS_SIZE);
                     case ('_') -> chessComponents[i][j] = new EmptySlotComponent(new ChessboardPoint(i,j), calculatePoint(i, j), clickController, CHESS_SIZE);
                 }
             }
